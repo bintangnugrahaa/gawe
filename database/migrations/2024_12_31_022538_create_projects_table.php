@@ -13,7 +13,21 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('thumbnail');
+            $table->string('skill_level');
+            $table->text('about');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('budget'); // 0123
+            $table->unsignedBigInteger('client_id'); // 0123
+            $table->boolean('has_finished');
+            $table->boolean('has_started');
+            $table->softDeletes();
             $table->timestamps();
+
+            // Reference client_id di sini
+            $table->foreign('client_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
