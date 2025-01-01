@@ -7,11 +7,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10 flex flex-col gap-y-5">
-                
-                @if($errors->any())
-                    @foreach($errors->all() as $error)
+
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
                         <div class="px-5 py-3 w-full rounded-3xl bg-red-500 text-white">
-                            {{$error}}
+                            {{ $error }}
                         </div>
                     @endforeach
                 @endif
@@ -33,7 +33,7 @@
                         </a>
                     </div>
 
-                    
+
                 </div>
 
                 <hr class="my-5">
@@ -58,7 +58,7 @@
 
                     <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-orange-500 text-white">
                         WAITING FOR APPROVAL
-                    </span> 
+                    </span>
 
                     <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-red-500 text-white">
                         REJECTED
@@ -71,7 +71,7 @@
                         </a>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
