@@ -17,23 +17,24 @@
                     @endforeach
                 @endif
 
-                <form method="POST" action="{{route('admin.categories.update', $category)}}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.categories.update', $category) }}"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
                     <div>
                         <x-input-label for="name" :value="__('Name')" />
                         <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
-                            value="{{$category->name}}" required autofocus autocomplete="name" />
+                            value="{{ $category->name }}" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="icon" :value="__('icon')" />
+                        <x-input-label for="icon" :value="__('Icon')" />
                         <img src="{{ Storage::url($category->icon) }}" alt=""
-                        class="rounded-2xl object-cover w-[120px] h-[90px]">
-                        <x-text-input id="icon" class="block mt-1 w-full" type="file" name="icon"
-                            autofocus autocomplete="icon" />
+                            class="rounded-2xl object-cover w-[120px] h-[90px]">
+                        <x-text-input id="icon" class="block mt-1 w-full" type="file" name="icon" autofocus
+                            autocomplete="icon" />
                         <x-input-error :messages="$errors->get('icon')" class="mt-2" />
                     </div>
 
