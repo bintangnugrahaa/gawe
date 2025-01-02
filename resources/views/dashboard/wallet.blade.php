@@ -35,12 +35,13 @@
                     </div>
                     <div class="flex flex-row gap-x-5">
 
-                        <a href="#" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                        <a href="{{ route('dashboard.wallet.withdraw') }}"
+                            class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                             Request Withdraw
                         </a>
 
 
-                        <a href="#" class="font-bold py-4 px-6 bg-green-700 text-white rounded-full">
+                        <a href="{{ route('dashboard.wallet.topup') }}" class="font-bold py-4 px-6 bg-green-700 text-white rounded-full">
                             Topup Wallet
                         </a>
 
@@ -70,7 +71,7 @@
                             </svg>
                             <div>
                                 <p class="text-slate-500 text-sm">Total Amount</p>
-                                <h3 class="text-indigo-950 text-xl font-bold">Rp {{ $transaction->amount }}</h3>
+                                <h3 class="text-indigo-950 text-xl font-bold">Rp {{number_format($transaction->amount, 0, ',', '.')}}</h3>
                             </div>
                         </div>
 
@@ -92,7 +93,7 @@
                         <div>
                             <p class="text-slate-500 text-sm">Date</p>
                             <h3 class="text-indigo-950 text-xl font-bold">
-                                {{ $transaction->created_at->format('m D Y') }}</h3>
+                                {{ $transaction->created_at->format('M d, Y') }}</h3>
                         </div>
                     </div>
                 @empty
