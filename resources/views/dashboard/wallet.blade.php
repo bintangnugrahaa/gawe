@@ -41,7 +41,8 @@
                         </a>
 
 
-                        <a href="{{ route('dashboard.wallet.topup') }}" class="font-bold py-4 px-6 bg-green-700 text-white rounded-full">
+                        <a href="{{ route('dashboard.wallet.topup') }}"
+                            class="font-bold py-4 px-6 bg-green-700 text-white rounded-full">
                             Topup Wallet
                         </a>
 
@@ -71,7 +72,8 @@
                             </svg>
                             <div>
                                 <p class="text-slate-500 text-sm">Total Amount</p>
-                                <h3 class="text-indigo-950 text-xl font-bold">Rp {{number_format($transaction->amount, 0, ',', '.')}}</h3>
+                                <h3 class="text-indigo-950 text-xl font-bold">Rp
+                                    {{ number_format($transaction->amount, 0, ',', '.') }}</h3>
                             </div>
                         </div>
 
