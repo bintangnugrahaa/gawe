@@ -15,6 +15,22 @@ class WalletTransactionController extends Controller
         //
     }
 
+    public function wallet_topups()
+    {
+        $topup_transactions = WalletTransaction::where('type', 'Topup')
+            ->orderByDesc('id')
+            ->paginate(10);
+        return view('admin.wallet_transactions.topups', compact('topup_transactions'));
+    }
+
+    public function wallet_withdrawals()
+    {
+        $withdrawals_transactions = WalletTransaction::where('type', 'Withdraw')
+            ->orderByDesc('id')
+            ->paginate(10);
+        return view('admin.wallet_transactions.withdrawals', compact('withdrawals_transactions'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -36,7 +52,7 @@ class WalletTransactionController extends Controller
      */
     public function show(WalletTransaction $walletTransaction)
     {
-        //
+        return view('admin.wallet_transactions.details', compact('walletTransaction'));
     }
 
     /**
