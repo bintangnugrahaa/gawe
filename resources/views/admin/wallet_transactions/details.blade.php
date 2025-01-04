@@ -114,14 +114,17 @@
                     <img src="{{ Storage::url($walletTransaction->proof) }}" alt=""
                         class="rounded-2xl object-cover w-[300px] h-[200px] mb-3">
 
-                    <hr class="my-5">
-                    <form action="#" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
-                            Approve Topup
-                        </button>
-                    </form>
+                    @if (!$walletTransaction->is_paid)
+                        <hr class="my-5">
+                        <form action="{{ route('admin.wallet_transactions.update', $walletTransaction) }}"
+                            method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                                Approve Topup
+                            </button>
+                        </form>
+                    @endif
                 @endif
 
             </div>
