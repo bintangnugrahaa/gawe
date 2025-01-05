@@ -82,6 +82,8 @@ class ProjectController extends Controller
 
             $newProject = Project::create($validated);
         });
+
+        return redirect()->route('admin.projects.index');
     }
 
     /**
