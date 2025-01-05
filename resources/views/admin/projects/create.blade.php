@@ -30,10 +30,12 @@
                     </svg>
                     <div>
                         <p class="text-slate-500 text-sm">Wallet Balance</p>
-                        <h3 class="text-indigo-950 text-xl font-bold">Rp 0</h3>
+                        <h3 class="text-indigo-950 text-xl font-bold">Rp
+                            {{ number_format(Auth::user()->wallet->balance, 0, ',', '.') }}</h3>
                     </div>
                 </div>
-                <a href="#" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                <a href="{{ route('dashboard.wallet.topup') }}"
+                    class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                     Topup Wallet
                 </a>
             </div>
@@ -53,7 +55,7 @@
                     @endforeach
                 @endif
 
-                <form method="POST" action="#" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.projects.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div>
@@ -83,6 +85,9 @@
                         <select name="category_id" id="category_id"
                             class="py-3 rounded-lg pl-3 w-full border border-slate-300">
                             <option value="">Choose category</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
 
                         <x-input-error :messages="$errors->get('category')" class="mt-2" />

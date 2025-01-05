@@ -41,15 +41,15 @@
                     <div class="flex flex-row gap-x-10">
                         <div>
                             <p class="text-slate-500 text-sm">Bank</p>
-                            <h3 class="text-indigo-950 text-xl font-bold">Angga Capital</h3>
+                            <h3 class="text-indigo-950 text-xl font-bold">Bank Central Asia</h3>
                         </div>
                         <div>
                             <p class="text-slate-500 text-sm">No Account</p>
-                            <h3 class="text-indigo-950 text-xl font-bold">08123092093</h3>
+                            <h3 class="text-indigo-950 text-xl font-bold">085155344998</h3>
                         </div>
                         <div>
                             <p class="text-slate-500 text-sm">Account Name</p>
-                            <h3 class="text-indigo-950 text-xl font-bold">Gawebro Indonesia</h3>
+                            <h3 class="text-indigo-950 text-xl font-bold">PT Nanuraga Jaya Abadi</h3>
                         </div>
                     </div>
 
