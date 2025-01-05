@@ -11,11 +11,11 @@ class ProjectApplicant extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'project_id', 
-        'freelancer_id', 
-        'status', 
+        'project_id',
+        'freelancer_id',
+        'status',
         'message'
-    ];    
+    ];
 
     public function freelancer()
     {
