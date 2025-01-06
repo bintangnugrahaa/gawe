@@ -56,7 +56,6 @@ class ProjectController extends Controller
             return redirect()->back()->withErrors([
                 'budget' => 'Balance Anda tidak cukup'
             ]);
-            
         }
 
         DB::transaction(function () use ($request, $user) {
