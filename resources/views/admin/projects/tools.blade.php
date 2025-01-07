@@ -30,7 +30,8 @@
 
                 <h3 class="text-indigo-950 text-xl font-bold">Add Tools</h3>
 
-                <form method="POST" action="#" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.projects.tools.store', $project->id) }}"
+                    enctype="multipart/form-data">
                     @csrf
 
                     <div>
@@ -62,13 +63,14 @@
                 @forelse($project->tools as $tool)
                     <div class="flex flex-row bg-red justify-between">
                         <div class="flex flex-row items-center gap-x-3">
-                            <img src=" " alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                            <img src="{{ Storage::url($tool->icon) }}" alt=""
+                                class="rounded-2xl object-cover w-[90px] h-[90px]">
                             <div class="flex flex-col">
-                                <h3 class="text-indigo-950 text-xl font-bold">figma</h3>
+                                <h3 class="text-indigo-950 text-xl font-bold">{{ $tool->name }}</h3>
                             </div>
                         </div>
                         <div class="flex flex-row items-center gap-x-3">
-                            <form action="#" method="POST">
+                            <form action="{{ route('admin.project_tools.destroy', $tool->pivot->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="font-bold py-4 px-6 bg-red-700 text-white rounded-full">
