@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Tool;
 use App\Models\WalletTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -91,7 +92,18 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.projects.show',  compact('project'));
+    }
+
+    public function tools(Project $project)
+    {
+        if ($project->client_id != auth()->id()) {
+            abort(403, 'You are not authorized');
+        }
+
+        $tools = Tool::all();
+
+        return view('admin.projects.tools', compact('project', 'tools'));
     }
 
     /**

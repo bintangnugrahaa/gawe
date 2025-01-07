@@ -18,17 +18,19 @@
 
                 <div class="item-card flex flex-row gap-y-10 justify-between md:items-center">
                     <div class="flex flex-row items-center gap-x-3">
-                        <img src="#" alt="" class="rounded-2xl object-cover w-[120px] h-[90px]">
+                        <img src="{{ Storage::url($project->thumbnail) }}" alt=""
+                            class="rounded-2xl object-cover w-[120px] h-[90px]">
                         <div class="flex flex-col">
-                            <h3 class="text-indigo-950 text-xl font-bold">lorem ipsum dolor</h3>
-                            <p class="text-slate-500 text-sm">html</p>
+                            <h3 class="text-indigo-950 text-xl font-bold">{{ $project->name }}</h3>
+                            <p class="text-slate-500 text-sm">{{ $project->category->name }}</p>
                         </div>
                     </div>
                     <div class="flex flex-row items-center gap-x-3">
                         <a href="#" class="font-bold py-4 px-6 bg-orange-500 text-white rounded-full">
                             Preview
                         </a>
-                        <a href="#" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                        <a href="{{ route('admin.projects.tools', $project) }}"
+                            class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                             Add Tools
                         </a>
                     </div>
