@@ -1,8 +1,8 @@
 @extends('front.layouts.app')
 @section('content')
-    <x-nav />
 
     <body class="font-poppins text-[#030303] bg-[#F6F5FA] pb-[100px] px-4 sm:px-0">
+        <x-nav />
         <section id="header"
             class="container max-w-[1130px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 mt-[50px]">
             <h1 class="font-extrabold text-[40px] leading-[45px] text-center sm:text-left">Browse Your <br>Favorites
@@ -26,7 +26,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-5 gap-5">
 
                 @forelse($categories as $category)
-                    <a href="category-auth.html" class="card">
+                    <a href="{{ route('front.category', $category->slug) }}" class="card">
                         <div
                             class="p-5 rounded-[20px] bg-white flex flex-col gap-[30px] hover:ring-2 hover:ring-[#6635F1] transition-all duration-300">
                             <div class="w-[70px] h-[70px] flex shrink-0">
@@ -34,7 +34,7 @@
                             </div>
                             <div class="flex flex-col gap-[6px]">
                                 <p href="" class="font-semibold text-lg">{{ $category->name }}</p>
-                                <p class="text-sm text-[#545768]">12,409 jobs available</p>
+                                <p class="text-sm text-[#545768]">{{ $category->projects->count() }} Jobs Available</p>
                             </div>
                         </div>
                     </a>

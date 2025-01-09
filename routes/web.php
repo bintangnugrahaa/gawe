@@ -12,6 +12,7 @@ use App\Http\Controllers\WalletTransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
+Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
