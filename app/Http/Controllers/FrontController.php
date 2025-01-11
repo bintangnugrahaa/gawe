@@ -23,6 +23,7 @@ class FrontController extends Controller
 
     public function details(Project $project)
     {
-        return view('front.details', compact('project'));
+        $projects = Project::orderByDesc('id')->get();
+        return view('front.details', compact('project', 'projects'));
     }
 }
