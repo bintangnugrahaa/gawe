@@ -20,4 +20,9 @@ class FrontController extends Controller
     {
         return view('front.category', compact('category'));
     }
+
+    public function details(Project $project)
+    {
+        return view('front.details', compact('project'));
+    }
 }
