@@ -35,6 +35,10 @@ class FrontController extends Controller
     {
         $user = Auth::user();
 
+        if ($user->hasAppliedToProject($project->id)) {
+            return redirect()->route('dashboard.proposals');
+        }
+
         if ($user->connect == 0) {
             return redirect()->route('front.out_of_connect');
         }
@@ -49,6 +53,10 @@ class FrontController extends Controller
     public function apply_job_store(StoreApplicantRequest $request, Project $project)
     {
         $user = Auth::user();
+
+        if ($user->hasAppliedToProject($project->id)) {
+            return redirect()->route('dashboard.proposals');
+        }
 
         if ($user->connect == 0) {
             return redirect()->route('front.out_of_connect');
