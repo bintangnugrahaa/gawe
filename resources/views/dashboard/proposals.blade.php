@@ -34,7 +34,8 @@
                         </div>
 
                         <div class="hidden md:flex flex-row items-center gap-x-3">
-                            <a href="#" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                            <a href="{{ route('dashboard.proposal_details', [$proposal->project, $proposal->id]) }}"
+                                class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                                 Details
                             </a>
                         </div>
