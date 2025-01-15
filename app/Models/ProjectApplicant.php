@@ -26,4 +26,9 @@ class ProjectApplicant extends Model
     {
         return $this->belongsTo(Project::class);
     }
+
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class);
+    }
 }
