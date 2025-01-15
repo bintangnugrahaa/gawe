@@ -86,7 +86,14 @@ class WalletTransactionController extends Controller
                 $walletTransaction->update([
                     'is_paid' => true,
                 ]);
-                $user_to_be_approved->wallet->increment('balance', $walletTransaction->amount);
+
+                // Ensure the user has a wallet, and if not, create one
+                if ($user_to_be_approved->wallet) {
+                    $user_to_be_approved->wallet->increment('balance', $walletTransaction->amount);
+                } else {
+                    // Optionally, create a wallet for the user
+                    $user_to_be_approved->wallet()->create(['balance' => $walletTransaction->amount]);
+                }
             }
         });
 
