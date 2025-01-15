@@ -58,7 +58,7 @@
                                         class="font-bold text-xs leading-[18px] text-white bg-[#28A745] p-[2px_10px] rounded-full w-fit absolute top-[10px] left-[10px]">
                                         IN PROGRESS
                                     </div>
-                                @elseif ($project->has_finished)
+                                @elseif($project->has_finished)
                                     <div
                                         class="font-bold text-xs leading-[18px] text-white bg-[#F3445C] p-[2px_10px] rounded-full w-fit absolute top-[10px] left-[10px]">
                                         CLOSED
