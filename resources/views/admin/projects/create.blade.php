@@ -31,13 +31,13 @@
                     <div>
                         <p class="text-slate-500 text-sm">Wallet Balance</p>
                         <h3 class="text-indigo-950 text-xl font-bold">
-                            Rp 
-                            @if(Auth::check() && Auth::user()->wallet)
+                            Rp
+                            @if (Auth::check() && Auth::user()->wallet)
                                 {{ number_format(Auth::user()->wallet->balance, 0, ',', '.') }}
                             @else
                                 0
                             @endif
-                        </h3>                        
+                        </h3>
                     </div>
                 </div>
                 <a href="{{ route('dashboard.wallet.topup') }}"
